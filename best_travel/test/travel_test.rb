@@ -47,6 +47,10 @@ class TravelTest < Minitest::Test
     assert_nil @travel.choose_best_sum(174, 0, ls)
   end
 
+  def test_best_sum
+    ls = [50, 55, 57, 58, 60]
 
+    assert_equal 173, @travel.choose_best_sum(174, 3, ls)
+  end
 
 end
