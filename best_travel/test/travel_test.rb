@@ -48,12 +48,12 @@ class TravelTest < Minitest::Test
     assert_equal 173, @travel.choose_best_sum(174, 3, @ls)
   end
 
-  # def test_best_sum_two
-  #   ts = [50, 55, 56, 57, 58]
-  #
-  #   assert_equal 173, @travel.choose_best_sum(163, 3, ts)
-  # end
-  #
+  def test_best_sum_two
+    ts = [50, 55, 56, 57, 58]
+
+    assert_equal 163, @travel.choose_best_sum(163, 3, ts)
+  end
+
   # def test_best_sum_three
   #   ys = [91, 74, 73, 85, 73, 81, 87]
   #
