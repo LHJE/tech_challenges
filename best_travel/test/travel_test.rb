@@ -5,6 +5,7 @@ require './lib/travel'
 class TravelTest < Minitest::Test
   def setup
     @travel = Travel.new
+    @ls = [50, 55, 57, 58, 60]
   end
 
   def test_it_exists
@@ -12,45 +13,35 @@ class TravelTest < Minitest::Test
   end
 
   def test_best_sum_broken
-    ls = []
+    ls_2 = []
 
-    assert_nil @travel.choose_best_sum(174, 3, ls)
+    assert_nil @travel.choose_best_sum(174, 3, ls_2)
   end
 
   def test_best_sum_broken_two
-    ls = [50, 55, 57, 58, 60]
-
-    assert_nil @travel.choose_best_sum(nil, 3, ls)
+    assert_nil @travel.choose_best_sum(nil, 3, @ls)
   end
 
   def test_best_sum_broken_three
-    ls = [50, 55, 57, 58, 60]
-
-    assert_nil @travel.choose_best_sum(-1, 3, ls)
+    assert_nil @travel.choose_best_sum(-1, 3, @ls)
   end
 
   def test_best_sum_broken_four
-    ls = [50, 55, 57, 58, 60]
-
-    assert_nil @travel.choose_best_sum(174, nil, ls)
+    assert_nil @travel.choose_best_sum(174, nil, @ls)
   end
 
   def test_best_sum_broken_five
-    ls = [50, 55, 57, 58, 60]
-
-    assert_nil @travel.choose_best_sum(174, 0, ls)
+    assert_nil @travel.choose_best_sum(174, 0, @ls)
   end
 
   def test_best_sum_broken_six
-    ls = nil
+    ls_2 = nil
 
-    assert_nil @travel.choose_best_sum(174, 0, ls)
+    assert_nil @travel.choose_best_sum(174, 0, ls_2)
   end
 
   def test_best_sum
-    ls = [50, 55, 57, 58, 60]
-
-    assert_equal 173, @travel.choose_best_sum(174, 3, ls)
+    assert_equal 173, @travel.choose_best_sum(174, 3, @ls)
   end
 
 end
