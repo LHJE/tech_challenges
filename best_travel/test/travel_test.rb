@@ -34,10 +34,6 @@ class TravelTest < Minitest::Test
     assert_nil @travel.choose_best_sum(174, 0, @ls)
   end
 
-  def test_best_sum_broken_five
-    assert_nil @travel.choose_best_sum(174, 1, @ls)
-  end
-
   # def test_best_sum_broken_six
   #   ls_2 = nil
   #
