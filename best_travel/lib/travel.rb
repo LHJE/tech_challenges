@@ -12,9 +12,15 @@ class Travel
   end
 
   def best_sum_helper(max_sum, max_towns, distances)
-    distances_2 = distances.rotate(1) + distances.rotate(2)
-    distances_3 = distances.rotate(2) + distances.rotate(3)
-    sums_arrays = (distances + distances).zip(distances_2).zip(distances_3)
+    id = 1
+    sum_hash = {}
+    sum_hash[id] = (distances + distances)
+    (max_towns - 1).times {
+      id += 1
+      sum_hash[id] = (distances.rotate(id - 1) + distances.rotate(id))
+    }
+    header, *rows = sum_hash.values
+    sums_arrays = header.zip(*rows)
     sums = sums_arrays.map do |sum_array|
       sum_array.flatten.sum
     end
