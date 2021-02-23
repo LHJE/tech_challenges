@@ -3,6 +3,8 @@ class Travel
   def initialize
   end
 
+
+  
   def choose_best_sum(max_sum, max_towns, distances)
     if max_sum.nil? || max_sum < 0 || max_towns.nil? || max_towns < 1 || max_towns > distances.length || distances.nil? || distances == []
       nil
@@ -29,30 +31,25 @@ class Travel
     end
   end
 
-  def distance_rows(distances, id, number, rotated_distances = [])
-    require "pry"; binding.pry
+  def distance_rows(distances, id, number, rotated_distances = [distances.rotate(id)])
     if rotated_distances.length != distances.length * number && rotated_distances.length != distances.length
-      rotated_distances = distances.rotate(id)
-      id += 1
-      rotated_distances << distances.rotate(id)
-      if rotated_distances.flatten.length == distances.length * number
-        rotated_distances.flatten
+      if rotated_distances == []
+        complete?(distances, id, number, rotated_distances)
       else
-        distance_rows(distances, id, number, rotated_distances.flatten)
+        complete?(distances, id, number, rotated_distances)
       end
-    elsif rotated_distances.length != distances.length * number
-      id += 1
-      rotated_distances << distances.rotate(id)
-      distance_rows(distances, id, number, rotated_distances.flatten)
     else
       rotated_distances.flatten
     end
-    #
-    #
-    # distances.rotate(id) + distances.rotate(id + 1) + distances.rotate(id + 2)
-
-
-
   end
 
+  def complete?(distances, id, number, rotated_distances)
+    id += 1
+    rotated_distances << distances.rotate(id)
+    if rotated_distances.flatten.length == distances.length * number
+      rotated_distances.flatten
+    else
+      distance_rows(distances, id, number, rotated_distances.flatten)
+    end
+  end
 end
