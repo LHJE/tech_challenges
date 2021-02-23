@@ -24,6 +24,7 @@ class Travel
   end
 
   def make_distance_rows(distances, id, number, rotated_distances = [distances.rotate(id)])
+    id += 1
     rotated_distances << distances.rotate(id)
     if rotated_distances.flatten.length == distances.length * number
       rotated_distances.flatten
