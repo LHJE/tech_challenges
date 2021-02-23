@@ -3,11 +3,7 @@ class Travel
   def initialize
   end
 
-<<<<<<< HEAD
   # This task is accomplished by making a varying number of rows of varying lengths, zipping them together to get nested arrays, getting the unique sums of those nested arrays, and finding the highest one that doesn't go over our max_sum.
-=======
-  # This task is accomplished by making three rows of varrying lengths, zipping them together to get nested arrays, getting the unique sums of those nested arrays, and finding the highest one that doesn't go over our max_sum.
->>>>>>> 190fd2efd5c145b9bac870364e52e6ef26de9610
 
   # First, let's weed out all the things that ought to just be `nil` first, then we can get on with business
   def choose_best_sum(max_sum, max_towns, distances)
@@ -24,16 +20,16 @@ class Travel
 
   def best_sum_helper(max_sum, max_towns, distances)
 
-    # First let's set an id.  This number can be anything, but we're going to use it to rotate our `distances` array, and it's going to go up, so I've just picked a short variable name
+    # First let's set an id.  This number and variable name can be anything, but we're going to use it to rotate our `distances` array, and it's going to go up, so I've just picked a short variable name and a small number
     id = 1
 
-    # My first run at this used Array's, and I ought to have written down why moving to hashes just felt better, but here we are.  Let's establish that variable so we can fill it with stuff.
+    # My first run at this used Array's, and I switched to a hash so we could do the part on line 37.  But for now, let's just get that variable on the table.  I should have named it `distances_hash`, but I liked how short this was.
     sum_hash = {}
 
-    # This is setting the first key in the `sum_hash` as a repeated version of the distanes.  The more distances, the longer the row you'll want so you'll end up with more combinations of numbers when we zip these rows together.
+    # This is setting the first key in the `sum_hash` as a repeated version of the distanes.  The more distances, the longer the row you'll want so you'll end up with more combinations of numbers when we zip these rows together.  I've found this calculation to be more than satisfactory.
     sum_hash[id] = (distances * (distances.length / 2))
 
-    # This next part will fill the hash with as many keys as max_towns, and the values will be rows of the `distances` repeated out to the length of the first key, but rotated over.  These rotations are done in a helper method below.
+    # This next part will fill the hash with as many keys as max_towns (it's minus one since we've already established the one at the top), and the values will be rows of the `distances` repeated out to the length of the first key, but rotated over.  These rotations are done in a helper method below.
     (max_towns - 1).times {
       id += 1
 
@@ -49,8 +45,7 @@ class Travel
   end
 
 
-  # This is likely the most complicated part of this whole opperation.  The first two best_sum tests give us 5 distances, but that third one gives us 7, which means the length of the distance rows in the sum_hash has to be different.  Simply, if the rows aren't long enough, when we zip them together, all of the possible combinations won't be present.  So this has to be dynamic.  Thus, this beast:
-
+  # This is likely the most complicated part of this whole opperation.  The first two best_sum tests give us 5 distances, but that third one gives us 7, which means the length of the distance rows in the sum_hash has to be different.  Simply, if the rows aren't long enough, when we zip them together, all of the possible combinations won't be present.  So this has to be dynamic.  Thus, this beast.
   # You'll note right off that I establish a variable called `rotated_distances` in the definition line, one which isn't passed in above.  This is because we're going to be looping over this method if we have to, and we want to save what we've done when we loop.  When we DO pass something in for `rotated_distances`, it overwrites what I establish in the line below, so that we can compare our new work before looping again.
   def make_distance_rows(distances, id, number, rotated_distances = [distances.rotate(id)])
     # So, let's first push the id up by one so the distances can get rotated by an even larger degree this time. We needed the id to be what it is when it's passed in so that `rotated_distances` could be created correctly the first time, but now we can start pushing it up.
