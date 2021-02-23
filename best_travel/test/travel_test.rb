@@ -33,7 +33,13 @@ class TravelTest < Minitest::Test
   def test_best_sum_broken_five
     assert_nil @travel.choose_best_sum(174, 0, @ls)
   end
-  
+
+  def test_best_sum_broken_six
+    ls_2 = nil
+
+    assert_nil @travel.choose_best_sum(174, 5, ls_2)
+  end
+
   def test_best_sum_broken_seven
     assert_nil @travel.choose_best_sum(174, 999, @ls)
   end
@@ -52,6 +58,30 @@ class TravelTest < Minitest::Test
     ys = [91, 74, 73, 85, 73, 81, 87]
 
     assert_equal 228, @travel.choose_best_sum(230, 3, ys)
+  end
+
+  def test_best_sum_four
+    ys = [91, 74, 73, 85, 73, 81, 87]
+
+    assert_equal 330, @travel.choose_best_sum(330, 4, ys)
+  end
+
+  def test_best_sum_four
+    ys = [91, 74, 73, 85, 73, 81, 87]
+
+    assert_equal 508, @travel.choose_best_sum(999, 6, ys)
+  end
+
+  def test_best_sum_four
+    ys = [91, 74, 73, 85, 73, 81, 87, 16, 95]
+
+    assert_equal 505, @travel.choose_best_sum(999, 5, ys)
+  end
+
+  def test_best_sum_four
+    ys = [91, 74, 73, 85, 73, 81, 87, 16, 95]
+
+    assert_equal 97, @travel.choose_best_sum(100, 2, ys)
   end
 
 end
