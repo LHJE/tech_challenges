@@ -3,7 +3,11 @@ class Travel
   def initialize
   end
 
+<<<<<<< HEAD
   # This task is accomplished by making a varying number of rows of varying lengths, zipping them together to get nested arrays, getting the unique sums of those nested arrays, and finding the highest one that doesn't go over our max_sum.
+=======
+  # This task is accomplished by making three rows of varrying lengths, zipping them together to get nested arrays, getting the unique sums of those nested arrays, and finding the highest one that doesn't go over our max_sum.
+>>>>>>> 190fd2efd5c145b9bac870364e52e6ef26de9610
 
   # First, let's weed out all the things that ought to just be `nil` first, then we can get on with business
   def choose_best_sum(max_sum, max_towns, distances)
