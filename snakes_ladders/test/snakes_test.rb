@@ -11,8 +11,15 @@ class SnakesTest < Minitest::Test
     assert_instance_of Snakes, @snakes
   end
 
-  def test_snakes
-    assert_equal "example", @snakes.method()
+  def test_play
+    assert_equal "Player 1 is on square 38", @snakes.play(1, 1)
   end
-  
+
+  def test_play_two
+    assert_equal "Player 1 is on square 38", @snakes.play(1, 1)
+    assert_equal "Player 1 is on square 44", @snakes.play(1, 5)
+    assert_equal "Player 2 is on square 31", @snakes.play(6, 2)
+    assert_equal "Player 1 is on square 25", @snakes.play(1, 1)
+  end
+
 end
