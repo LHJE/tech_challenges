@@ -45,7 +45,8 @@ class Code
 		decoded = []
 		id = 0
 		split_code = morseCode.split(/ /)
-		split_code.each do |character|
+		split_code_filtered = filter_code(split_code)
+		split_code_filtered.each do |character|
 			if character == "" && id != 1
 				decoded << " "
 				id += 1
@@ -57,5 +58,19 @@ class Code
 		decoded.join("").upcase
 	end
 
-
+	def filter_code(split_code)
+		split_code.each do |character|
+			if character == ""
+				split_code.shift
+				break
+			else
+				break
+			end
+		end
+		if split_code[0] == ""
+			filter_code(split_code)
+		else
+			split_code
+		end
+	end
 end
