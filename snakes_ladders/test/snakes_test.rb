@@ -15,11 +15,22 @@ class SnakesTest < Minitest::Test
     assert_equal "Player 1 is on square 38", @snakes.play(1, 1)
   end
 
-  def test_play_two
-    assert_equal "Player 1 is on square 38", @snakes.play(1, 1)
-    assert_equal "Player 1 is on square 44", @snakes.play(1, 5)
-    assert_equal "Player 2 is on square 31", @snakes.play(6, 2)
-    assert_equal "Player 1 is on square 25", @snakes.play(1, 1)
-  end
+  # def test_play_two
+  #   assert_equal "Player 1 is on square 38", @snakes.play(1, 1)
+  #   assert_equal "Player 1 is on square 44", @snakes.play(1, 5)
+  # end
+  #
+  # def test_play_three
+  #   assert_equal "Player 1 is on square 38", @snakes.play(1, 1)
+  #   assert_equal "Player 1 is on square 44", @snakes.play(1, 5)
+  #   assert_equal "Player 2 is on square 31", @snakes.play(6, 2)
+  # end
+  #
+  # def test_play_four
+  #   assert_equal "Player 1 is on square 38", @snakes.play(1, 1)
+  #   assert_equal "Player 1 is on square 44", @snakes.play(1, 5)
+  #   assert_equal "Player 2 is on square 31", @snakes.play(6, 2)
+  #   assert_equal "Player 1 is on square 25", @snakes.play(1, 1)
+  # end
 
 end
