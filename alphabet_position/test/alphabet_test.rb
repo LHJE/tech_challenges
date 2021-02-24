@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/alphabet'
 
-class AverageTest < Minitest::Test
+class AlphabetTest < Minitest::Test
   def setup
     @alphabet = Alphabet.new
   end
