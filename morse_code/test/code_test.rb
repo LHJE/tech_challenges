@@ -11,8 +11,13 @@ class CodeTest < Minitest::Test
     assert_instance_of Code, @code
   end
 
-  def test_alpha_pos_one
-    assert_equal "HEY  JUDE", @code.decodeMorse('.... . -.--   .--- ..- -.. .')
+  def test_decode
+    assert_equal "HEY JUDE", @code.decodeMorse('.... . -.--   .--- ..- -.. .')
+  end
+
+  def test_decode_two
+    assert_equal "HEY JUDE", @code.decodeMorse('                  .... . -.--   .--- ..- -.. .')
+
   end
 
 end
