@@ -28,15 +28,15 @@ class SnakesLaddersTest < Minitest::Test
     assert_equal 0, @snakes.player_2.position
   end
 
-  # def test_play_three
-  #   assert_equal "Player 1 is on square 38", @snakes.play(1, 1)
-  #   assert_equal "Player 1 is on square 44", @snakes.play(1, 5)
-  #   assert_equal "Player 2 is on square 31", @snakes.play(6, 2)
-  #   assert_equal true, @snakes.player_1_turn
-  #   assert_equal 31, @snakes.player_2_position
-  #   assert_equal 44, @snakes.player_1_position
-  # end
-  #
+  def test_play_three
+    assert_equal "Player 1 is on square 38", @snakes.play(1, 1)
+    assert_equal "Player 1 is on square 44", @snakes.play(1, 5)
+    assert_equal "Player 2 is on square 31", @snakes.play(6, 2)
+    assert_equal true, @snakes.player_1_turn
+    assert_equal 31, @snakes.player_2.position
+    assert_equal 44, @snakes.player_1.position
+  end
+
   # def test_play_four
   #   assert_equal "Player 1 is on square 38", @snakes.play(1, 1)
   #   assert_equal "Player 1 is on square 44", @snakes.play(1, 5)
