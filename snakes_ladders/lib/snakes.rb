@@ -14,11 +14,21 @@ class Snakes
 
   def play(die1, die2)
     if @player_1_turn == true
-        if @player_1_position.nil?
-          @player_1_position = (die1 + die2)
-        else
-          @player_1_position += (die1 + die2)
+      if @player_1_position.nil?
+        @player_1_position = (die1 + die2)
+      else
+        @player_1_position += (die1 + die2)
+      end
+      if die1 == die2
+        if @player_1_position == 2
+          land_on_two
         end
+      else
+        if @player_1_position = 2
+          land_on_two
+          @player_1_turn = false
+        end
+      end
     end
   end
 
