@@ -28,17 +28,16 @@ class SnakesLadders
     end
     if die1 == die2
       if @player_1_position == 2
-        land_on_two
+        land_on_2
+      elsif @player_1_position == 46
+        land_on_46
       end
     else
       if @player_1_position == 2
-        land_on_two
+        land_on_2
         @player_1_turn = false
       else
-        # pretty messy but it can be refactored
-        message = print_message(@player_1_position)
-        @player_1_turn = false
-        message
+        print_player_message(@player_1_position)
       end
     end
   end
@@ -51,23 +50,27 @@ class SnakesLadders
     end
     if die1 == die2
       if @player_2_position == 2
-        land_on_two
+        land_on_2
       end
     else
       if @player_2_position == 2
-        land_on_two
-        @player_1_turn = true
+        land_on_2
       elsif @player_2_position == 8
-          land_on_eight
-          message = print_message(@player_2_position)
-          @player_1_turn = true
-          message
+        land_on_8
+        print_player_message(@player_2_position)
+      elsif @player_2_position == 46
+        land_on_46
+        print_player_message(@player_2_position)
       else
-        message = print_message(@player_2_position)
-        @player_1_turn = true
-        message
+        print_player_message(@player_2_position)
       end
     end
+  end
+
+  def print_player_message(position)
+    message = print_message(position)
+    @player_1_turn = !@player_1_turn
+    message
   end
 
   def print_message(player_position)
@@ -78,24 +81,31 @@ class SnakesLadders
     end
   end
 
-  def land_on_two
+  def land_on_2
     if @player_1_turn == true
       @player_1_position = 38
-      print_message(38)
     else
       @player_2_position = 38
-      print_message(38)
     end
+    print_message(38)
   end
 
-  def land_on_eight
+  def land_on_8
     if @player_1_turn == true
       @player_1_position = 31
-      print_message(31)
     else
       @player_2_position = 31
-      print_message(31)
     end
+    print_message(31)
+  end
+
+  def land_on_46
+    if @player_1_turn == true
+      @player_1_position = 25
+    else
+      @player_2_position = 25
+    end
+    print_message(25)
   end
 
 
