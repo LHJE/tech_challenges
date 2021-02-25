@@ -6,6 +6,14 @@ class SnakesLadders
     def initialize(position)
       @position = position
     end
+
+    def change_position(amount)
+      @position += amount
+    end
+
+    def set_position(new_position)
+      @position = new_position
+    end
   end
 
   attr_reader :player_1_turn,
@@ -29,24 +37,23 @@ class SnakesLadders
   end
 
   def turn(player, die1, die2)
-    require "pry"; binding.pry
-    if player.position.nil?
-      player.position = (die1 + die2)
+    if player.position == 0
+      player.change_position(die1 + die2)
     else
-      player.position += (die1 + die2)
+      player.change_position(die1 + die2)
     end
     if die1 == die2
       if player.position == 2
-        land_on_2(player.position)
+        land_on_2(player)
       elsif player.position == 46
-        land_on_46(player.position)
+        land_on_46(player)
       end
     else
       if player.position == 2
-        land_on_2(player.position)
+        land_on_2(player)
         @player_1_turn = false
       else
-        print_player_message(player.position)
+        print_player_message(player)
       end
     end
   end
@@ -90,27 +97,18 @@ class SnakesLadders
     end
   end
 
-  def land_on_2(player_position)
-    require "pry"; binding.pry
-    player_position = 38
+  def land_on_2(player)
+    player.set_position(38)
     print_message(38)
   end
 
-  def land_on_8(player_position)
-    if @player_1_turn == true
-      @player_1_position = 31
-    else
-      @player_2_position = 31
-    end
+  def land_on_8(player)
+    player.set_position = 31
     print_message(31)
   end
 
-  def land_on_46(player_position)
-    if @player_1_turn == true
-      @player_1_position = 25
-    else
-      @player_2_position = 25
-    end
+  def land_on_46(player)
+    player.set_position = 25
     print_message(25)
   end
 
