@@ -17,8 +17,8 @@ class SnakesLadders
   end
 
   attr_reader :player_1_turn,
-              :player_1_position,
-              :player_2_position,
+              :player_1,
+              :player_2,
               :board
 
   def initialize
