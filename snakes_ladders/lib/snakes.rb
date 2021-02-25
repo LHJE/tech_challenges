@@ -52,6 +52,9 @@ class SnakesLadders
       if player.position == 2
         land_on_2(player)
         @player_1_turn = false
+      elsif player.position == 8
+        land_on_8(player)
+        print_player_message(player.position)
       else
         print_player_message(player.position)
       end
@@ -103,12 +106,12 @@ class SnakesLadders
   end
 
   def land_on_8(player)
-    player.set_position = 31
+    player.set_position(31)
     print_message(31)
   end
 
   def land_on_46(player)
-    player.set_position = 25
+    player.set_position(25)
     print_message(25)
   end
 
