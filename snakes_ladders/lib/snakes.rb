@@ -53,7 +53,7 @@ class SnakesLadders
         land_on_2(player)
         @player_1_turn = false
       else
-        print_player_message(player)
+        print_player_message(player.position)
       end
     end
   end
