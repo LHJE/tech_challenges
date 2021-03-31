@@ -27,4 +27,8 @@ class ValidTest < Minitest::Test
     assert_equal false, @valid.valid_parentheses("hi())(")
   end
 
+  def test_valid_five
+    assert_equal true, @valid.valid_parentheses("hi(hi)()")
+  end
+
 end
