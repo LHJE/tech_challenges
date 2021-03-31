@@ -7,7 +7,18 @@ class Valid
     elsif simple_string == []
       true
     else
-      require "pry"; binding.pry
+      id = 0
+      result = true
+      simple_string.each do |character|
+        if character == "("
+          id += 1
+        elsif character == ")" && id != 0
+          id -= 1
+        else
+          result = false
+        end
+      end
+      result
     end
   end
 
