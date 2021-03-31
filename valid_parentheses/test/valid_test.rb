@@ -19,4 +19,8 @@ class ValidTest < Minitest::Test
     assert_equal false, @valid.valid_parentheses(")test")
   end
 
+  def test_valid_three
+    assert_equal true, @valid.valid_parentheses("")
+  end
+
 end
