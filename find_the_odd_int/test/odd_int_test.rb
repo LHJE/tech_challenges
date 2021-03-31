@@ -15,4 +15,9 @@ class OddIntTest < Minitest::Test
     assert_equal 5, @odd_int.find_it([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5])
   end
 
+  def test_find_it_two
+    assert_equal (-1), @odd_int.find_it([1,1,2,-2,5,2,4,4,-1,-2,5])
+  end
+
+
 end
