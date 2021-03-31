@@ -27,4 +27,8 @@ class OddIntTest < Minitest::Test
     assert_equal 10, @odd_int.find_it([10])
   end
 
+  def test_find_it_five
+    assert_equal 10, @odd_int.find_it([1,1,1,1,1,1,10,1,1,1,1])
+  end
+
 end
