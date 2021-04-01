@@ -27,19 +27,22 @@ class Strings
     end_results << equals.uniq.sort
 
     # end_results.flatten.uniq.sort_by(&:length).reverse
-    result_hash = {}
+    results_hash = {}
     end_results.flatten.uniq.each do |result|
-      if result_hash[result.length - 2].nil?
+      if results_hash[result.length - 2].nil?
 
-        result_hash[result.length - 2] = [result]
+        results_hash[result.length - 2] = [result]
       else
-        result_hash[result.length - 2] << result
+        results_hash[result.length - 2] << result
       end
     end
 
-    
-    require "pry"; binding.pry
-    # end_results.flatten.uniq.sort.join("/")
+    final_results = []
+    results_hash.each do |length, result|
+      final_results << result.sort
+    end
+
+    final_results.flatten.join("/")
   end
 
 end
